@@ -6,6 +6,7 @@ var resultat = []
 for(let i=0;i<img.length;i++){
 img[i].addEventListener("click", function() {
   img[i].src = "img/" + tab[i]
+  img[i].alt = tab[i]
   resultat.push(tab[i])
   if(resultat.length === 2){
       setTimeout(bonjour,1000)
@@ -15,8 +16,9 @@ img[i].addEventListener("click", function() {
 function bonjour(){
     if(resultat[0] !== resultat[1]){
       for(let y=0;y<img.length;y++){
-        if(img[y].src === ("file:///home/benjamin/site/lab/memory/img/" + resultat[0]) || img[y].src === ("file:///home/benjamin/site/lab/memory/img/" + resultat[1])){
+        if(img[y].alt === (resultat[0]) || img[y].alt === (resultat[1])){
           img[y].src = ""
+          img[y].alt = ""
         }
       }
       resultat.length = 0
