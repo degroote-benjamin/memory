@@ -17,7 +17,7 @@ function bonjour(){
     if(resultat[0] !== resultat[1]){
       for(let y=0;y<img.length;y++){
         if(img[y].alt === (resultat[0]) || img[y].alt === (resultat[1])){
-          img[y].src = ""
+          img[y].src = "img/dos.png"
           img[y].alt = ""
         }
       }
