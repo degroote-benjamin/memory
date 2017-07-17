@@ -7,6 +7,13 @@ var div = document.getElementById("div")
 var p = document.getElementById("p")
 var compt1 = 0
 
+    for (let i =tab.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var carte = tab[i];
+        tab[i] =tab[j];
+        tab[j] = carte;
+    }
+
 for (let i = 0; i < img.length; i++) {
     img[i].addEventListener("click", function() {
       var compt = 0;
@@ -16,7 +23,7 @@ for (let i = 0; i < img.length; i++) {
         if (resultat.length === 2) {
           compt1++
             finish()
-            setTimeout(verif, 1000)
+            setTimeout(verif, 500)
             setTimeout(function() {
                 for (let x = 0; x < img.length; x++) {
                     if (final[x] == undefined) {
@@ -28,11 +35,10 @@ for (let i = 0; i < img.length; i++) {
                     }
                     if(compt === tab.length){
                       div.style.display = "none"
-                      p.style.display = "block"
-                      p.innerHTML ="<p class='text-center'>Victoire <br> en " + compt1 + " coup</p>"
+                      p.innerHTML ="<p class='text-center'>Victoire <br> en " + compt1 + " coup<br><a href='index.html'>rejouer</a></p>"
                     }
                 }
-            }, 1000)
+            }, 500)
         }
     })
 };
