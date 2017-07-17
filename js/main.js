@@ -1,5 +1,5 @@
 // var init
-var tab = ["as1.jpg", "as2.png", "as3.png", "as4.png", "as1.jpg", "as2.png", "as3.png", "as4.png", "2c.jpg", "2carreau.png", "2t.jpg", "2c.jpg", "2carreau.png", "2t.jpg"]
+var tab = ["1.png","2.png","3.png","4.png","5.png","6.png","7.png","1.png","2.png","3.png","4.png","5.png","6.png","7.png"]
 var img = document.getElementsByTagName("img")
 var resultat = []
 var final = []
