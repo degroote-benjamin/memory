@@ -12,7 +12,15 @@ for (let i = 0; i < img.length; i++) {
         if (resultat.length === 2) {
             finish()
             setTimeout(verif, 1000)
-            for(let x=0 ; x<img.length;x++)
+            setTimeout(function() {
+                for (let x = 0; x < img.length; x++) {
+                    if (final[x] == undefined) {
+                        img[x].src = "img/dos.png"
+                    } else {
+                        img[x].src = "img/" + final[x]
+                    }
+                }
+            }, 1000)
         }
     })
 };
@@ -31,12 +39,12 @@ function verif() {
     }
 }
 
-function finish(){
-  if(resultat[0] === resultat[1]){
-    for (let z = 0; z < img.length; z++) {
-        if (img[z].alt === (resultat[0]) || img[z].alt === (resultat[1])) {
-            final[z] = img[z].alt
+function finish() {
+    if (resultat[0] === resultat[1]) {
+        for (let z = 0; z < img.length; z++) {
+            if (img[z].alt === (resultat[0]) && img[z].alt === (resultat[1])) {
+                final[z] = img[z].alt
+            }
         }
     }
-  }
 }
