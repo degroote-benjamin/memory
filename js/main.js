@@ -7,21 +7,24 @@ var div = document.getElementById("div")
 var p = document.getElementById("p")
 var compt1 = 0
 
-    for (let i =tab.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var carte = tab[i];
-        tab[i] =tab[j];
-        tab[j] = carte;
-    }
+// algorithm fisher
+for (let i = tab.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var carte = tab[i];
+    tab[i] = tab[j];
+    tab[j] = carte;
+}
 
+
+// function on click
 for (let i = 0; i < img.length; i++) {
     img[i].addEventListener("click", function() {
-      var compt = 0;
+        var compt = 0;
         img[i].src = "img/" + tab[i]
         img[i].alt = tab[i]
         resultat.push(tab[i])
         if (resultat.length === 2) {
-          compt1++
+            compt1++
             finish()
             setTimeout(verif, 500)
             setTimeout(function() {
@@ -33,9 +36,9 @@ for (let i = 0; i < img.length; i++) {
                         compt++
                         console.log(compt)
                     }
-                    if(compt === tab.length){
-                      div.style.display = "none"
-                      p.innerHTML ="<p class='text-center'>Victoire <br> en " + compt1 + " coup<br><a href='index.html'>rejouer</a></p>"
+                    if (compt === tab.length) {
+                        div.style.display = "none"
+                        p.innerHTML = "<p class='text-center'>Victoire <br> en " + compt1 + " coup<br><a href='index.html'>rejouer</a></p>"
                     }
                 }
             }, 500)
@@ -43,6 +46,7 @@ for (let i = 0; i < img.length; i++) {
     })
 };
 
+//  verif if click 1 and click 2 are indentic or not
 function verif() {
     if (resultat[0] !== resultat[1]) {
         for (let y = 0; y < img.length; y++) {
@@ -57,6 +61,7 @@ function verif() {
     }
 }
 
+// final table for know if the game is finish or not
 function finish() {
     if (resultat[0] === resultat[1]) {
         for (let z = 0; z < img.length; z++) {
