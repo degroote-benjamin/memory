@@ -3,13 +3,18 @@ var tab = ["as1.jpg", "as2.png", "as3.png", "as4.png", "as1.jpg", "as2.png", "as
 var img = document.getElementsByTagName("img")
 var resultat = []
 var final = []
+var div = document.getElementById("div")
+var p = document.getElementById("p")
+var compt1 = 0
 
 for (let i = 0; i < img.length; i++) {
     img[i].addEventListener("click", function() {
+      var compt = 0;
         img[i].src = "img/" + tab[i]
         img[i].alt = tab[i]
         resultat.push(tab[i])
         if (resultat.length === 2) {
+          compt1++
             finish()
             setTimeout(verif, 1000)
             setTimeout(function() {
@@ -18,6 +23,13 @@ for (let i = 0; i < img.length; i++) {
                         img[x].src = "img/dos.png"
                     } else {
                         img[x].src = "img/" + final[x]
+                        compt++
+                        console.log(compt)
+                    }
+                    if(compt === tab.length){
+                      div.style.display = "none"
+                      p.style.display = "block"
+                      p.innerHTML ="<p class='text-center'>Victoire <br> en " + compt1 + " coup</p>"
                     }
                 }
             }, 1000)

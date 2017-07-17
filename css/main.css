@@ -99,10 +99,6 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-   .red {
-     background: red;
-   }
-
    .retour{
      border : 1px solid white;
      height: 150px;
@@ -114,6 +110,10 @@ textarea {
   }
 }
 
+.p{
+  display: none;
+  font-size:50px;
+}
 
 /* ==========================================================================
    Helper classes
