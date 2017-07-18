@@ -20,7 +20,7 @@ for (let i = 0; i < img.length; i++) {
         if (resultat.length === 2) {
             compt1++
             finish()
-            setTimeout(verif, 350)
+            setTimeout(verif, 600)
             setTimeout(function() {
                 for (let x = 0; x < img.length; x++) {
                     if (final[x] == undefined) {
