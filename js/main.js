@@ -7,14 +7,8 @@ var div = document.getElementById("div")
 var p = document.getElementById("p")
 var compt1 = 0
 
-// algorithm fisher
-for (let i = tab.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var carte = tab[i];
-    tab[i] = tab[j];
-    tab[j] = carte;
-}
 
+replace(tab)
 
 // function on click
 for (let i = 0; i < img.length; i++) {
@@ -26,7 +20,7 @@ for (let i = 0; i < img.length; i++) {
         if (resultat.length === 2) {
             compt1++
             finish()
-            setTimeout(verif, 500)
+            setTimeout(verif, 350)
             setTimeout(function() {
                 for (let x = 0; x < img.length; x++) {
                     if (final[x] == undefined) {
@@ -70,4 +64,24 @@ function finish() {
             }
         }
     }
+}
+
+
+// algorithm fisher-yates
+function replace(array) {
+  var m = array.length, t, i;
+
+  // While there remain elements to shuffle…
+  while (m) {
+
+    // Pick a remaining element…
+    i = Math.floor(Math.random() * m--);
+
+    // And swap it with the current element.
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+  }
+
+  return array;
 }
